@@ -1,6 +1,10 @@
-import './Header.scss'
+import { useState } from "react";
+import "./Header.scss";
+import LoginModal from "../LoginModal/LoginModal";
 
 function Header({ theme, toggleTheme, menuOpen, setMenuOpen }) {
+    const [isLoginOpen, setIsLoginOpen] = useState(false);
+
     return (
         <>
             <header>
@@ -25,10 +29,11 @@ function Header({ theme, toggleTheme, menuOpen, setMenuOpen }) {
                                 <span></span>
                             </div>
                         </div>
-                        <button>Login</button>
+                        <button onClick={() => setIsLoginOpen(true)}>Login</button>
                     </div>
                 </div>
             </header>
+
             <div className={`sidebar ${menuOpen ? "open" : ""}`}>
                 <button className="close-btn" onClick={() => setMenuOpen(false)}>✖</button>
                 <div className="logo">
@@ -37,11 +42,14 @@ function Header({ theme, toggleTheme, menuOpen, setMenuOpen }) {
                 <a className="link active" href="#">Products</a>
                 <a href="#" className="link">Posts</a>
                 <a href="#" className="link">Todos</a>
-                <button className="login-mobile">Login</button>
+                <button className="login-mobile" onClick={() => setIsLoginOpen(true)}>Login</button>
             </div>
+            
             <div className={`overlay ${menuOpen ? "show" : ""}`} onClick={() => setMenuOpen(false)}></div>
+
+            {isLoginOpen && <LoginModal setIsLoginOpen={setIsLoginOpen} />}
         </>
     )
 }
 
-export default Header
+export default Header;

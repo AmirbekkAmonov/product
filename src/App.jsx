@@ -122,7 +122,7 @@ const App = () => {
 
         {visibleCount < filteredProducts.length && (
           <button className="load-more" onClick={() => setVisibleCount(prev => prev + 8)}>
-            Ko‘proq ko‘rish
+            Ko'proq ko'rish
           </button>
         )}
       </div>
