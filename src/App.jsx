@@ -15,6 +15,7 @@ const App = () => {
   const [sortName, setSortName] = useState("all");
   const [sortPrice, setSortPrice] = useState("all");
   const [sortRating, setSortRating] = useState("all");
+  const [visibleCount, setVisibleCount] = useState(8);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -93,6 +94,7 @@ const App = () => {
               setSortName("all");
               setSortPrice("all");
               setSortRating("all");
+              setVisibleCount(8);
             }}>
               <img src={theme === "light" ? "./icons/brush2.svg" : "./icons/brush.svg"} alt="" />
               <span className="clear">Tozalash</span>
@@ -103,37 +105,26 @@ const App = () => {
           {loading ? (
             Array.from({ length: 8 }).map((_, index) => (
               <div className='card' key={index}>
-                <Skeleton
-                  height={200}
-                  baseColor={theme === "dark" ? "#0f172a" : "#f3f4f6"} 
-                  highlightColor={theme === "dark" ? "#1e293b" : "#e5e7eb"}
-                />
+                <Skeleton height={200} baseColor={theme === "dark" ? "#0f172a" : "#f3f4f6"} highlightColor={theme === "dark" ? "#1e293b" : "#e5e7eb"} />
                 <div className='title'>
-                  <Skeleton
-                    width={150} height={20}
-                    baseColor={theme === "dark" ? "#0f172a" : "#f3f4f6"}
-                    highlightColor={theme === "dark" ? "#1e293b" : "#e5e7eb"}
-                  />
-                  <Skeleton
-                    width={100} height={20}
-                    baseColor={theme === "dark" ? "#0f172a" : "#f3f4f6"}
-                    highlightColor={theme === "dark" ? "#1e293b" : "#e5e7eb"}
-                  />
-                  <Skeleton
-                    width={80} height={20}
-                    baseColor={theme === "dark" ? "#0f172a" : "#f3f4f6"}
-                    highlightColor={theme === "dark" ? "#1e293b" : "#e5e7eb"}
-                  />
+                  <Skeleton width={150} height={20} baseColor={theme === "dark" ? "#0f172a" : "#f3f4f6"} highlightColor={theme === "dark" ? "#1e293b" : "#e5e7eb"} />
+                  <Skeleton width={100} height={20} baseColor={theme === "dark" ? "#0f172a" : "#f3f4f6"} highlightColor={theme === "dark" ? "#1e293b" : "#e5e7eb"} />
+                  <Skeleton width={80} height={20} baseColor={theme === "dark" ? "#0f172a" : "#f3f4f6"} highlightColor={theme === "dark" ? "#1e293b" : "#e5e7eb"} />
                 </div>
               </div>
             ))
           ) : (
-            filteredProducts.map(product => (
+            filteredProducts.slice(0, visibleCount).map(product => (
               <Card key={product.id} product={product} />
             ))
           )}
-
         </div>
+
+        {visibleCount < filteredProducts.length && (
+          <button className="load-more" onClick={() => setVisibleCount(prev => prev + 8)}>
+            Ko‘proq ko‘rish
+          </button>
+        )}
       </div>
     </>
   );

@@ -169,3 +169,22 @@ form {
         padding: 10px;
     }
 }
+.load-more {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+  
+    &:hover {
+      background-color: var(--primary-hover);
+    }
+  }
+  
