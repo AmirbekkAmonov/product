@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./LoginModal.scss";
 
 function LoginModal({ setIsLoginOpen }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+
+    useEffect(() => {
+        document.body.style.overflow = "hidden"; 
+        return () => {
+            document.body.style.overflow = "auto"; 
+        };
+    }, []);
 
     const validateEmail = (email) => {
         return /\S+@\S+\.\S+/.test(email); 
@@ -19,12 +26,12 @@ function LoginModal({ setIsLoginOpen }) {
             setError("Password must be at least 6 characters!");
             return;
         }
-        setIsLoginOpen(false); 
+        setIsLoginOpen(false);
     };
 
     const handleOverlayClick = (e) => {
         if (e.target.classList.contains("login-modal")) {
-            setIsLoginOpen(false); 
+            setIsLoginOpen(false);
         }
     };
 

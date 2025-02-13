@@ -6,6 +6,9 @@
     --border-color: #383737;
     --select-bg: #f9f9f9;
     --select-text: #333;
+    --login-bg: #f9f9f9;
+    --login-input-bg: #dedede;
+
 }
 
 [data-theme="dark"] {
@@ -16,6 +19,8 @@
     --border-color: #565656;
     --select-bg: #333;
     --select-text: #fff;
+    --login-bg: #1e293b;
+    --login-input-bg: #334155;
 }
 
 body {
