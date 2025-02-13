@@ -1,0 +1,152 @@
+:root {
+    --background-color: #ffffff;
+    --text-color: #222;
+    --button-bg: #222;
+    --button-text: rgb(0, 0, 0);
+    --border-color: #383737;
+    --select-bg: #f9f9f9;
+    --select-text: #333;
+}
+
+[data-theme="dark"] {
+    --background-color: #020817;
+    --text-color: #f1f1f1;
+    --button-bg: white;
+    --button-text: rgb(255, 255, 255);
+    --border-color: #565656;
+    --select-bg: #333;
+    --select-text: #fff;
+}
+
+body {
+    background: var(--background-color);
+    color: var(--text-color);
+    transition: all 0.3s, color 0.3s;
+}
+
+
+form {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding: 20px;
+    gap: 20px;
+
+    @media (max-width: 800px) {
+        justify-content: start;
+        align-items: start;
+        flex-direction: column;
+    }
+
+    input {
+        width: 40%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid var(--border-color);
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-size: 1rem;
+
+        @media (max-width: 800px) {
+            width: 100%;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: #0000ff;
+        }
+    }
+
+    .filter {
+        display: flex;
+        align-items: end;
+        gap: 20px;
+        @media (max-width: 590px) {
+            align-items: start;
+        }
+        .filter-items {
+            display: flex;
+            gap: 20px;
+
+            @media (max-width: 590px) {
+                flex-wrap: wrap;
+            }
+
+            .filter-item {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                gap: 5px;
+
+                p {
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: var(--text-color);
+                    margin: 0;
+                }
+
+                select {
+                    width: 150px;
+                    padding: 8px;
+                    border-radius: 5px;
+                    border: 1px solid var(--border-color);
+                    background-color: var(--select-bg);
+                    color: var(--select-text);
+                    font-size: 14px;
+                    cursor: pointer;
+                    transition: 0.3s;
+
+                    &:hover {
+                        border-color: #0000ff;
+                    }
+
+                    &:focus {
+                        outline: none;
+                        border-color: #0000ff;
+                    }
+
+                    option {
+                        background-color: var(--select-bg);
+                        color: var(--select-text);
+                    }
+                }
+            }
+        }
+
+        button {
+            position: relative;
+            background-color: transparent;
+            @media (max-width: 590px) {
+                margin-top: 20px;
+            }
+
+            &:hover .clear {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            img {
+                width: 35px;
+                height: 35px;
+                background-color: transparent;
+            }
+
+            .clear {
+                visibility: hidden;
+                opacity: 0;
+                background-color: black;
+                color: white;
+                text-align: center;
+                padding: 5px 10px;
+                border-radius: 5px;
+                position: absolute;
+                bottom: 120%;
+                left: 50%;
+                transform: translateX(-50%);
+                white-space: nowrap;
+                transition: opacity 0.3s;
+            }
+        }
+    }
+
+}
