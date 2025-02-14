@@ -1,0 +1,114 @@
+.product-page {
+  width: 100%;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+
+  .container {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .back-button {
+    background: var(--button-product-bg);
+    color: var(--text-color);
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition:all 0.3s ease-in-out;
+
+    &:hover {
+      background: var(--button-product-bg-hover);
+    }
+  }
+
+  .product-card {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    gap: 40px;
+
+    .product-img {
+      width: 400px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .product-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      h1 {
+        font-size: 40px;
+        font-weight: 600;
+
+      }
+
+      .description {
+        font-size: 16px;
+      }
+
+      .price {
+        font-size: 28px;
+        font-weight: bold;
+        color: #475569;
+      }
+
+      .rating {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .stars {
+          display: flex;
+          font-size: 24px;
+          gap: 2px; 
+        }
+        
+        .star {
+          color: #ccc; 
+        }
+        
+        .star.full {
+          color: gold; 
+        }
+        
+        .star.half {
+          position: relative;
+          display: inline-block;
+          color: #ccc; 
+        
+          &::before {
+            content: "★";
+            position: absolute;
+            left: 0;
+            width: 49.999%;
+            overflow: hidden;
+            color: gold;
+          }
+        }       
+      } 
+      button {
+        width: 200px;
+        display: inline-block;
+        margin-top: 20px;
+        background-color: var(--button-product-bg);
+        color: var(--text-color);
+        padding: 10px 16px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        transition:all 0.3s ease-in-out;
+
+        &:hover {
+          background: var(--button-product-bg-hover);
+        }
+      }  
+    }
+  }
+}
