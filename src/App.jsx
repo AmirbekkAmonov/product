@@ -5,6 +5,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 import Header from "./components/Header/Header";
 import Card from "./components/Product_card/Card";
 import ProductPage from "./components/Pages/ProductPage";
+import BackToTop from "./components/BackToTop/BackToTop";
 import axios from "axios";
 import "./App.scss";
 
@@ -136,6 +137,7 @@ const App = () => {
         />
         <Route path="/product/:id" element={<ProductPage products={products} />} />
       </Routes>
+      <BackToTop />
     </Router >
   );
 };
